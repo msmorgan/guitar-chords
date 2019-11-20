@@ -20,3 +20,10 @@
 .App-link {
   color: #09d3ac;
 }
+
+.App-chords {
+  display: grid;
+  grid-template-columns: repeat(12, min-content);
+  grid-auto-rows: min-content;
+  grid-gap: 5px;
+}

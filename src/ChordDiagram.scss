@@ -1,0 +1,103 @@
+$fretSize: 2px;
+$stringSize: 2px;
+$noteSize: 16px;
+
+$fretCount: 7;
+$stringCount: 6;
+
+$stringGap: 18px;
+$fretGap: 24px;
+
+$leftGutterWidth: 22px;
+
+.ChordDiagram {
+  font-family: sans-serif;
+}
+
+.ChordDiagram-name {
+  font-size: 25px;
+  margin-bottom: -20px;
+  padding-left: $leftGutterWidth;
+  text-align: center;
+}
+
+.ChordDiagram-layers {
+  display: grid;
+  grid-template: 1fr / 1fr;
+
+  & > * {
+    display: grid;
+    grid-area: 1 / 1;
+    grid-template: repeat($fretCount, $fretGap)
+                 / $leftGutterWidth repeat($stringCount, $stringGap);
+  }
+}
+
+.ChordDiagram-stringsLayer {
+  & > .ChordDiagram-noString,
+  & > .ChordDiagram-string {
+    grid-row: 2 / -1;
+  }
+
+  & > .ChordDiagram-string {
+    background-color: black;
+    justify-self: center;
+    width: $stringSize;
+  }
+}
+
+.ChordDiagram-fretsLayer {
+  & > .ChordDiagram-fretIndicator {
+    align-self: center;
+    font-size: $noteSize;
+    font-weight: bold;
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: center;
+  }
+
+  & > .ChordDiagram-fret {
+    align-self: end;
+    grid-column: 2 / -1;
+    background-color: black;
+    height: $fretSize;
+  }
+}
+
+.ChordDiagram-notesLayer {
+  align-items: center;
+  justify-items: center;
+
+  & > .ChordDiagram-note {
+    box-sizing: border-box;
+    height: $noteSize;
+    width: $noteSize;
+  }
+
+  & > .ChordDiagram-note-required {
+    background-color: black;
+    border-radius: 50%;
+  }
+
+  & > .ChordDiagram-note-optional {
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 50%;
+  }
+
+  & > .ChordDiagram-note-after1 {
+    text-align: center;
+    transform: scale(1.5, 1.2);
+
+    &::after {
+      content: 'X';
+      font-size: $noteSize;
+      font-weight: bold;
+    }
+  }
+
+  & > .ChordDiagram-note-after2 {
+    background-color: white;
+    border: 3px solid black;
+  }
+}
