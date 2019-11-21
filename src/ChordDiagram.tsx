@@ -12,6 +12,7 @@ function noteTypeClass(type: NoteType): string {
   return {
     [NoteType.REQUIRED]: 'required',
     [NoteType.OPTIONAL]: 'optional',
+    [NoteType.SPECIAL]: 'special',
     [NoteType.AFTER1]: 'after1',
     [NoteType.AFTER2]: 'after2',
   }[type];

@@ -1,6 +1,7 @@
 export enum NoteType {
   REQUIRED,
   OPTIONAL,
+  SPECIAL,
   AFTER1,
   AFTER2,
 }
@@ -76,7 +77,47 @@ const shorthandChords: string[] = [
   'Am:o12|o12,o15|o14|r14|r13|r12',
   'Am:o12|o12,o15|r14|r14|r13|o12',
   'Am:o12|r15||r14|o13|r12',
+
+  'A/9:o12|r12|r11|r9|r12|o9,o12',
+  'A/9:r9|o7|r7|r9|o10|r7',
+  'A/9:r5|r7|r9|r6|o5|o5',
+  'A/9:|r12|o14|r16|r14|r12',
+  'A/9:o12|r16|r14|r14|r12|o12',
+  'A/9:o5|r4|o7|r4|r5|o7',
+  'A/9(6):r5|o4|r2|r4|r2|s2,o5',
+  'A/9:|r4|r7||r5|r7',
+
+  'A6(9):r5|r7||r6|r7|o5,s7',
+  'A6(9):o5|r7|o7|r6|r7|r5,s7',
+  'A6:r5||r4|r6|r5|o5',
+  'A6:r9||r7|r9|r7|o9',
+  'A6:r12|o12|r11|r11|r10|o12',
+  'A6:o12|r12|o14|r14|r14|r14',
+  'A6:o5|o4|r2,o4|r2|r2|r2',
+  'A6(9):||r4|r6|r5|r5,s7',
+  'A6:o9|o7|r7|r9|r7|r9',
+  'A6:o12|o12|r11|r11|r10|r12',
+  'A6:r12|r12|o11|r11|r14|o14',
+  'A6:r12|r12|r11|r11|o14|o12,o14',
+  'A6:|r7|r7|r6|r7|o9',
+  'A6:r5|r7|r4|r6||',
+  'A6:o17|r19|r16|r14|r14|o14',
+  'A6:o5|r9|r7|r6|r5|o5',
+  'A6(9):|r12|r11|r9|r7|s7',
+  'A6/9:o5|r4|r4|r4|r5|r5',
+  'A6/9:o12|o12|r11|r11|r12|r12,o14',
 ];
+
+function typeFromShorthand(shorthand: string): NoteType | null {
+  const typeMap: { [key: string]: NoteType } = {
+    'r': NoteType.REQUIRED,
+    'o': NoteType.OPTIONAL,
+    's': NoteType.SPECIAL,
+    'a': NoteType.AFTER1,
+    'b': NoteType.AFTER2,
+  };
+  return typeMap[shorthand.toLowerCase()];
+}
 
 function chordFromShorthand(shorthand: string): Chord {
   const [name, chord] = shorthand.split(':');
@@ -85,17 +126,11 @@ function chordFromShorthand(shorthand: string): Chord {
   let string = 6;
   for (const inString of chord.split('|')) {
     for (const note of inString.split(',')) {
-      if (note.length === 0) { continue; }
-      const typeMap: {[key: string]: NoteType} = {
-        'r': NoteType.REQUIRED,
-        'o': NoteType.OPTIONAL,
-        'a': NoteType.AFTER1,
-        'b': NoteType.AFTER2,
-      };
-      const type = typeMap[note.substring(0, 1).toLowerCase()];
-
+      if (note.length === 0) {
+        continue;
+      }
+      const type = typeFromShorthand(note.substring(0, 1)) || NoteType.REQUIRED;
       const fret = Number(note.substring(1));
-
       notes.push({type, string, fret});
     }
     string -= 1;
@@ -107,13 +142,14 @@ function typeToShorthand(type: NoteType): string {
   return {
     [NoteType.REQUIRED]: 'r',
     [NoteType.OPTIONAL]: 'o',
+    [NoteType.SPECIAL]: 's',
     [NoteType.AFTER1]: 'a',
     [NoteType.AFTER2]: 'b',
   }[type];
 }
 
 function chordToShorthand(chord: Chord): string {
-  const perString: {[string: number]: Note[]} = {};
+  const perString: { [string: number]: Note[] } = {};
   for (const note of chord.notes) {
     perString[note.string] = perString[note.string] || [];
     perString[note.string].push(note);
