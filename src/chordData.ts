@@ -106,9 +106,25 @@ const shorthandChords: string[] = [
   'A6(9):|r12|r11|r9|r7|s7',
   'A6/9:o5|r4|r4|r4|r5|r5',
   'A6/9:o12|o12|r11|r11|r12|r12,o14',
+
+  'A~7~(~9~):r5|o7|r6|r6|o5|s7',
+  'A~7~(~9~):r12|r12|r11|r13|s12,o14|o12',
+  'A~7~:|r12|r14|r13|r14|o12',
+  'A~7~(~9~):|r7|r7|r6|r9|s7,o9',
+  'A~7~:o9|o7|r7|r9|r9|r9',
+  'A~7~:|o4|r2|r2|r2,o5|r4',
+  'A~7~:||r11|r13|r10|r12',
+  'A~7~:|r16|r18|r14|r17|',
+  'A~7~:r5|r7||r6|r9|o9',
+  'A~7~:|r12|r14|o14|r14|r16',
+  'A~7~:o9,o12|r12|r11|r9|r9|o9,o12',
+  'A~7~:r9|o7|r7|r9|r9|o9',
+  'A~7~:|r19|r18|r14|r14|',
+  'A~7~:o5|o4,o7|r7|r6|r5|r4',
+  'A~7~:r5|o7|o6,o7|r6|r5|r4',
 ];
 
-function typeFromShorthand(shorthand: string): NoteType | null {
+function typeFromShorthand(shorthand: string): NoteType | undefined {
   const typeMap: { [key: string]: NoteType } = {
     'r': NoteType.REQUIRED,
     'o': NoteType.OPTIONAL,

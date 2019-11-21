@@ -15,6 +15,7 @@ $noteBorderThickness: 3px;
 
 .ChordDiagram {
   font-family: sans-serif;
+  -webkit-print-color-adjust: exact;
 }
 
 .ChordDiagram-name {
