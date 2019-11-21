@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/guitar-chords/static/css/main.1bb520b7.chunk.css",
+    "main.js": "/guitar-chords/static/js/main.dccea2dc.chunk.js",
+    "main.js.map": "/guitar-chords/static/js/main.dccea2dc.chunk.js.map",
+    "runtime-main.js": "/guitar-chords/static/js/runtime-main.19bdce06.js",
+    "runtime-main.js.map": "/guitar-chords/static/js/runtime-main.19bdce06.js.map",
+    "static/js/2.cb1dbc49.chunk.js": "/guitar-chords/static/js/2.cb1dbc49.chunk.js",
+    "static/js/2.cb1dbc49.chunk.js.map": "/guitar-chords/static/js/2.cb1dbc49.chunk.js.map",
+    "index.html": "/guitar-chords/index.html",
+    "precache-manifest.bf407248daaa10a05c4ed6e818434f29.js": "/guitar-chords/precache-manifest.bf407248daaa10a05c4ed6e818434f29.js",
+    "service-worker.js": "/guitar-chords/service-worker.js",
+    "static/css/main.1bb520b7.chunk.css.map": "/guitar-chords/static/css/main.1bb520b7.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.19bdce06.js",
+    "static/js/2.cb1dbc49.chunk.js",
+    "static/css/main.1bb520b7.chunk.css",
+    "static/js/main.dccea2dc.chunk.js"
+  ]
+}
