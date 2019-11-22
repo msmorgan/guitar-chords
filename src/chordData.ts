@@ -122,6 +122,32 @@ const shorthandChords: string[] = [
   'A~7~:|r19|r18|r14|r14|',
   'A~7~:o5|o4,o7|r7|r6|r5|r4',
   'A~7~:r5|o7|o6,o7|r6|r5|r4',
+
+  'A~9~:o9||r7|r9|r9|r7',
+  'A~9~:r5||r6|r6|r5|r7',
+  'A~9~:r17|r16|r18|r16|r17|',
+  'A~9~:|o7|r7|r6|r9|r7',
+  'A~9~:o12|r12|r11|r13|r12|o12',
+  'A~9~:r5||r9|r9|r9|r9',
+  'A~9~(~13~):r5||r6|r4|r2|s2',
+  'A~9~:o9,o12|r12|r9|r9|r9|o9,o12',
+  'A~9~:o5|r4|r7|r4|r5|r4',
+  'A~9~(~13~):|r12,o16|r14|r13|r12|o12,s14,o16',
+
+  'A~13~:r5|r4|r4|r4|r5|r4',
+
+  'A6/9+11(~7~):o12|r12|r11|r11,s13|r12|r11',
+  'A6/9+11(~7~):r5|r7|r4,s6|r4|r4|s4',
+  'A6/9+11(~7~):r12|r12|r16|r16|r16|s16',
+
+  'A~7~+11:o5|r7|r7|r6|r4|r4',
+
+  'Am/9:r5|r7|r9|r5|o5|o5',
+
+  'Am7:r5|o7|r5|r5|r5,o8|o5,o8',
+  'Am7:r5|r7||r5|r8|o5,o8',
+  'Am7:|r12|r14|r12|r13|o12,o15',
+  'Am7:|r12|o10|r12|r13|r12',
 ];
 
 function typeFromShorthand(shorthand: string): NoteType | undefined {
