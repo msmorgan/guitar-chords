@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c708bf373aed6806ffe3a9dedda65241",
+    "revision": "e7607acf8a4f35d8a46eb44c23e332a4",
     "url": "/guitar-chords/index.html"
   },
   {
-    "revision": "3c689a05271ed4dcd214",
+    "revision": "44142dfc744514e246af",
     "url": "/guitar-chords/static/css/main.1bb520b7.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/guitar-chords/static/js/2.cb1dbc49.chunk.js"
   },
   {
-    "revision": "3c689a05271ed4dcd214",
-    "url": "/guitar-chords/static/js/main.dccea2dc.chunk.js"
+    "revision": "44142dfc744514e246af",
+    "url": "/guitar-chords/static/js/main.a0a7b6c9.chunk.js"
   },
   {
     "revision": "7223faa1f86a0878bc61",
